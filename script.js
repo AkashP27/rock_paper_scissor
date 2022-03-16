@@ -1,5 +1,5 @@
 const selectionButtons = document.querySelectorAll("[data-selection]");
-const SELECTION = [
+const SELECTIONS = [
  {
   name: "rock",
   emoji: "✊",
@@ -23,10 +23,16 @@ selectionButtons.forEach((selectionButton) => {
   const selection = SELECTIONS.find(
    (selection) => selection.name === selectionName
   );
-  makeSelection(selectionName);
+  makeSelection(selection);
  });
 });
 
 function makeSelection(selection) {
- console.log(selection);
+ const computerSelection = randomSelection();
+ console.log(computerSelection);
+}
+
+function randomSelection() {
+ const randomIndex = Math.floor(Math.random() * SELECTIONS.length);
+ return SELECTIONS[randomIndex];
 }
